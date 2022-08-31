@@ -1,0 +1,42 @@
+.core{
+  position: absolute;
+  margin: 20px;
+  }
+
+  input[type="checkbox"]{
+  height: 20px;
+  width: 20px;
+  background-color: rgba(86, 76, 76, 0.216);
+  position: relative;
+  outline: none;
+  transform: rotate(45deg);
+  -webkit-appearance:none;
+  }
+
+  input[type="checkbox"]:before{
+  position: absolute;
+  content: "";
+  background-color: rgba(86, 76, 76, 0.216);
+  height: 60%;
+  width: 100%;
+  top: -59%;
+  border-radius: 75px 75px 0 0;
+  }
+
+  input[type="checkbox"]:after{
+    position: absolute;
+    content: "";
+    background-color: rgba(86, 76, 76, 0.216);
+    height: 60%;
+    width: 100%;
+    transform: rotate(-90deg);
+    border-radius: 75px 75px 0 0;
+    top: 20%;
+    right: 79%;
+    }
+
+  input[type="checkbox"]:checked,
+  input:checked[type="checkbox"]:before,
+  input:checked[type="checkbox"]:after{
+  background-color: #fe0f42;
+  }
