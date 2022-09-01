@@ -18,6 +18,8 @@ class MusicCard extends Component {
 
   handleSave = async ({ target: { checked } }) => {
     const currSong = { ...this.props };
+    delete currSong.updateFavSongs;
+    const { updateFavSongs } = this.props;
     this.setState({
       loading: true,
     });
@@ -26,6 +28,7 @@ class MusicCard extends Component {
     } else {
       await removeSong(currSong);
     }
+    updateFavSongs();
     this.setState({
       loading: false,
       favorite: checked,
@@ -35,42 +38,44 @@ class MusicCard extends Component {
   render() {
     const { trackName, previewUrl, trackId } = this.props;
     const { loading, favorite } = this.state;
-
+    console.log('musicic');
     return (
       <section>
-        { loading && <Loading /> }
-        { !loading && (
-          <>
-            <h3>{trackName}</h3>
-            <audio src={ previewUrl } controls>
-              <track kind="captions" />
-              O seu navegador não suporta o elemento
-              {' '}
-              <code>audio</code>
-              .
-            </audio>
-            <label className="core" htmlFor={ trackName }>
-              <input
-                id={ trackName }
-                type="checkbox"
-                checked={ favorite }
-                onChange={ this.handleSave }
-                data-testid={ `checkbox-music-${trackId}` }
-              />
-            </label>
-          </>
-        ) }
+        {loading && <Loading />}
+        <h3>{trackName}</h3>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          {' '}
+          <code>audio</code>
+          .
+        </audio>
+        <label className="core" htmlFor={ trackName }>
+          <input
+            id={ trackName }
+            type="checkbox"
+            checked={ favorite }
+            onChange={ this.handleSave }
+            data-testid={ `checkbox-music-${trackId}` }
+          />
+          Favorita
+        </label>
       </section>
+
     );
   }
 }
+
+MusicCard.defaultProps = {
+  updateFavSongs: () => {},
+};
 
 MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
   trackId: PropTypes.number.isRequired,
-
+  updateFavSongs: PropTypes.func,
 };
 
 export default MusicCard;

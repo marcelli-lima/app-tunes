@@ -4,6 +4,7 @@
   }
 
   input[type="checkbox"]{
+  cursor: pointer;
   height: 20px;
   width: 20px;
   background-color: rgba(86, 76, 76, 0.216);

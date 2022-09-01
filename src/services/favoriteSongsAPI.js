@@ -7,8 +7,12 @@ if (!JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY))) {
 }
 const readFavoriteSongs = () => JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY));
 
-const saveFavoriteSongs = (favoriteSongs) => localStorage
-  .setItem(FAVORITE_SONGS_KEY, JSON.stringify(favoriteSongs));
+const saveFavoriteSongs = (favoriteSongs) => {
+  console.log(favoriteSongs);
+  return (
+    localStorage
+      .setItem(FAVORITE_SONGS_KEY, JSON.stringify(favoriteSongs)));
+};
 
 // --------------------------------------------------------------------
 // A função simulateRequest simula uma requisição para uma API externa
@@ -37,6 +41,7 @@ export const addSong = (song) => new Promise((resolve) => {
 });
 
 export const removeSong = (song) => new Promise((resolve) => {
+  console.log('removeu');
   const favoriteSongs = readFavoriteSongs();
   saveFavoriteSongs(favoriteSongs.filter((s) => s.trackId !== song.trackId));
   simulateRequest(SUCCESS_STATUS)(resolve);
