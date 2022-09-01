@@ -8,7 +8,7 @@ class Favorite extends React.Component {
   constructor() {
     super();
     this.state = {
-      loading: true,
+      loading: false,
       favorites: [],
     };
   }
@@ -18,6 +18,7 @@ class Favorite extends React.Component {
   }
 
   requestFavoriteSongs = async () => {
+    this.setState({ loading: true });
     const songs = await getFavoriteSongs();
     this.setState({ favorites: songs, loading: false });
   }
@@ -28,19 +29,17 @@ class Favorite extends React.Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        {loading
-          ? <Loading />
-          : (
-            favorites.map((song) => (
-              <MusicCard
-                key={ song.trackId }
-                { ...song }
-                isFavorite
-                updateFavSongs={ this.requestFavoriteSongs }
-                checked={ favorites.some((fav) => fav.trackId === song.trackId) }
-              />
-            ))
-          )}
+        { loading && <Loading /> }
+        {
+          favorites.map((song) => (
+            <MusicCard
+              key={ song.trackId }
+              { ...song }
+              isFavorite
+              updateFavSongs={ this.requestFavoriteSongs }
+            />
+          ))
+        }
       </div>
     );
   }

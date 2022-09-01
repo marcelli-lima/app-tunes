@@ -18,7 +18,6 @@ class MusicCard extends Component {
 
   handleSave = async ({ target: { checked } }) => {
     const currSong = { ...this.props };
-    delete currSong.updateFavSongs;
     const { updateFavSongs } = this.props;
     this.setState({
       loading: true,
@@ -39,6 +38,7 @@ class MusicCard extends Component {
     const { trackName, previewUrl, trackId } = this.props;
     const { loading, favorite } = this.state;
     console.log('musicic');
+    console.log(favorite);
     return (
       <section>
         {loading && <Loading />}
