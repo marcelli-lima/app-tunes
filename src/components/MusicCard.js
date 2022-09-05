@@ -74,7 +74,7 @@ MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
-  trackId: PropTypes.number.isRequired,
+  trackId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   updateFavSongs: PropTypes.func,
 };
 
