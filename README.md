@@ -43,3 +43,5 @@
  <img align="center" alt="Celi-CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"> CSS
 
  <img align="center" alt="Celi-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"> JavaScript
+ 
+ ⚠️ESTILIZAÇÃO EM ANDAMENTO
