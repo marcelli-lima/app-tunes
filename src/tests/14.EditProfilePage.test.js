@@ -168,9 +168,9 @@ describe('14 - Crie o formulário de edição de perfil', () => {
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
         { timeout: 3500 }
-        );
-        
-        expect(screen.getByText('Salvar alterações')).toBeInTheDocument();
-        expect(window.location.pathname).toBe('/profile');
+      );
+
+      expect(screen.getByText('Salvar alterações')).toBeInTheDocument();
+      expect(window.location.pathname).toBe('/profile/edit');
     });
 });

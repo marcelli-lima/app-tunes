@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import AlbumCard from '../components/AlbumCard';
+import './search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -43,17 +44,19 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <div>
-          { loading && <Loading /> }
-          { !loading && (
-            <div>
+        { loading && <Loading /> }
+        { !loading && (
+          <div className="container-album">
+            <div className="search-container">
               <input
+                id="search"
                 value={ search }
                 data-testid="search-artist-input"
                 onChange={ this.handleFilter }
                 placeholder="Nome do artista ou banda"
               />
               <button
+                id="search-button"
                 type="button"
                 data-testid="search-artist-button"
                 disabled={ button }
@@ -61,19 +64,19 @@ class Search extends React.Component {
               >
                 Pesquisar
               </button>
-              { (request) && (result.length > 0
-                ? <p>{`Resultado de álbuns de: ${searchValue}`}</p>
-                : <p>Nenhum álbum foi encontrado</p>
-              ) }
-              { Boolean(result.length) && result.map((album) => (
-                <AlbumCard
-                  key={ album.collectionId }
-                  { ...album }
-                />
-              ))}
             </div>
-          )}
-        </div>
+            { (request) && (result.length > 0
+              ? <p id="search-result">{`Resultado de álbuns de: ${searchValue}`}</p>
+              : <p>Nenhum álbum foi encontrado</p>
+            ) }
+            { Boolean(result.length) && result.map((album) => (
+              <AlbumCard
+                key={ album.collectionId }
+                { ...album }
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }

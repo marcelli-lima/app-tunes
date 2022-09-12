@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import './login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -41,18 +42,20 @@ handleCreateUser = async () => {
   render() {
     const { buttonDisabled, name, loading, userCreated } = this.state;
     return (
-      <div data-testid="page-login">
+      <div className="login-container" data-testid="page-login">
         {userCreated && <Redirect to="/search" />}
         {loading && <Loading />}
         {!loading && (
           <form>
             <input
+              id="input-login"
               valeu={ name }
               onChange={ this.handleFilter }
               data-testid="login-name-input"
               placeholder="nome"
             />
             <button
+              id="button-login"
               type="button"
               data-testid="login-submit-button"
               disabled={ buttonDisabled }

@@ -61,6 +61,7 @@ class ProfileEdit extends React.Component {
         { !loading
            && (
              <form>
+               <img src={ image } alt={ name } />
                <label htmlFor="edit-input-image">
                  Editar Foto:
                  <input

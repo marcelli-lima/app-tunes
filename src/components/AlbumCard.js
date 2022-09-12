@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './albumCard.css';
 
 class AlbumCard extends Component {
   render() {
@@ -13,14 +14,16 @@ class AlbumCard extends Component {
 
     return (
       <section>
-        <img src={ artworkUrl100 } alt={ `${collectionName} - ${artistName}` } />
-        <Link
-          data-testid={ `link-to-album-${collectionId}` }
-          to={ `/album/${collectionId}` }
-        >
-          { collectionName }
-        </Link>
-        <p>{ artistName }</p>
+        <div className="container-card">
+          <img src={ artworkUrl100 } alt={ `${collectionName} - ${artistName}` } />
+          <Link
+            data-testid={ `link-to-album-${collectionId}` }
+            to={ `/album/${collectionId}` }
+          >
+            { collectionName }
+          </Link>
+          <p>{ artistName }</p>
+        </div>
       </section>
     );
   }
