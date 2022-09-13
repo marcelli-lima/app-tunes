@@ -1,50 +1,50 @@
 .container-album {
-  width: 90%;
-  margin:auto;  display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: wrap;
+  grid-gap: 15px 8px;
   justify-content: space-between;
-    grid-gap: 15px 8px;
+  margin:auto;  display: flex;
+  width: 90%;
 }
 .search-container {
+  align-items: center;
   display: flex;
-align-items: center;
-grid-gap: 0px 10px;
-justify-content: center;
-height: 200px;
-margin: auto;
+  grid-gap: 0px 10px;
+  height: 200px;
+  justify-content: center;
+  margin: auto;
 }
 
 #search {
-padding: 12px 16px;
-gap: 10px;
-width: 419px;
-height: 35px;
-background: #FFFFFF;
-border: 1px solid #3D495C;
-border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid #3D495C;
+  border-radius: 6px;
+  gap: 10px;
+  height: 35px;
+  padding: 12px 16px;
+  width: 419px;
 }
 
 #search-button {
 align-items: center;
+background: #003BE5;
+border-radius: 2px;
+color: #FFFFFF;
+cursor: pointer;
 gap: 10px;
-width: 134px;
 height: 45px;
 left: 926px;
 top: 277px;
-color: #FFFFFF;
-background: #003BE5;
-border-radius: 2px;
-cursor: pointer;
+width: 134px;
 }
 
 #search-result {
   display: flex;
   font-family: 'Epilogue';
-font-style: normal;
-font-weight: 300;
-font-size: 28px;
-line-height: 25px;
-width: 90%;
-margin: 20px 20px;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  margin: 20px 20px;
+  width: 90%;
 }

@@ -21,16 +21,16 @@ class Login extends React.Component {
     this.setState({ name: value }, () => this.disabledButton());
   }
 
-handleCreateUser = async () => {
-  this.setState({ loading: true });
+  handleCreateUser = async () => {
+    this.setState({ loading: true });
 
-  const { name } = this.state;
-  await createUser({ name });
+    const { name } = this.state;
+    await createUser({ name });
 
-  this.setState({
-    userCreated: true,
-  });
-}
+    this.setState({
+      userCreated: true,
+    });
+  }
 
   disabledButton = () => {
     const { name } = this.state;
