@@ -37,8 +37,6 @@ class MusicCard extends Component {
   render() {
     const { trackName, previewUrl, trackId } = this.props;
     const { loading, favorite } = this.state;
-    console.log('musicic');
-    console.log(favorite);
     return (
       <section>
         {loading && <Loading />}
@@ -61,7 +59,6 @@ class MusicCard extends Component {
           Favorita
         </label>
       </section>
-
     );
   }
 }

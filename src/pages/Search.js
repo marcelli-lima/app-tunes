@@ -34,9 +34,10 @@ class Search extends React.Component {
   buttonSearch = async () => {
     this.setState({ loading: true });
     const { search } = this.state;
-    const resulte = await searchAlbumsAPI(search);
+    const resultApi = await searchAlbumsAPI(search);
     this.setState({
-      searchValue: search, search: '', loading: false, request: true, result: resulte });
+      searchValue: search, search: '', loading: false, request: true, result: resultApi,
+    });
   }
 
   render() {
@@ -44,8 +45,7 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header />
-        { loading && <Loading /> }
-        { !loading && (
+        { loading ? <Loading /> : (
           <div className="container-album">
             <div className="search-container">
               <input
@@ -75,8 +75,7 @@ class Search extends React.Component {
                 { ...album }
               />
             ))}
-          </div>
-        )}
+          </div>)}
       </div>
     );
   }

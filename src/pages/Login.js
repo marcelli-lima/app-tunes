@@ -44,8 +44,7 @@ class Login extends React.Component {
     return (
       <div className="login-container" data-testid="page-login">
         {userCreated && <Redirect to="/search" />}
-        {loading && <Loading />}
-        {!loading && (
+        {loading ? <Loading /> : (
           <form>
             <input
               id="input-login"

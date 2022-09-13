@@ -21,8 +21,7 @@ export default class Header extends React.Component {
     const { user } = this.state;
     return (
       <header data-testid="header-component">
-        { !user && <Loading />}
-        { user && (
+        { user ? (
           <>
             <div className="container-user">
               <p>tera uma imagem</p>
@@ -37,7 +36,6 @@ export default class Header extends React.Component {
                 data-testid="link-to-search"
               >
                 Search
-
               </Link>
               <Link
                 className="links"
@@ -45,7 +43,6 @@ export default class Header extends React.Component {
                 data-testid="link-to-favorites"
               >
                 Favoritos
-
               </Link>
               <Link
                 className="links"
@@ -53,11 +50,10 @@ export default class Header extends React.Component {
                 data-testid="link-to-profile"
               >
                 Perfil
-
               </Link>
             </div>
           </>
-        )}
+        ) : <Loading />}
       </header>
     );
   }

@@ -20,7 +20,6 @@ class Profile extends React.Component {
 
   render() {
     const { user, loading } = this.state;
-    console.log(user);
     return (
       <div data-testid="page-profile">
         <Header />

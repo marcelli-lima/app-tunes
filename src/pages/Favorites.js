@@ -25,7 +25,6 @@ class Favorite extends React.Component {
 
   render() {
     const { loading, favorites } = this.state;
-    console.log('renderizou');
     return (
       <div data-testid="page-favorites">
         <Header />
